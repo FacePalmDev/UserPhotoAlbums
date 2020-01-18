@@ -155,7 +155,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 16
- testRunner.Given(string.Format("I have {0} and {1}", noPhotos, noAlbums), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("The user has {0} and {1}", noPhotos, noAlbums), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 17
  testRunner.When("the data is requested <contentFormat> format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

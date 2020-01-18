@@ -13,7 +13,7 @@ Scenario: No photos or albums found for Nested Content
 
 Scenario Outline: User content exists
 
-	Given I have <NoPhotos> and <NoAlbums>
+	Given The user has <NoPhotos> and <NoAlbums>
 	When the data is requested <contentFormat> format
 	Then the resulting HTTP Status code should be 200
 	And the result should contain <NoPhotos> photos
