@@ -28,7 +28,7 @@ namespace UserPhotoContent.Tests.Integration
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "SpecFlowFeature1.feature"
+#line 1 "RetrivingUserPhotoContent.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -200,7 +200,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the data is requested <contentFormat> format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 24
- testRunner.Then("the HTTP Status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the resulting HTTP Status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 25
  testRunner.And(string.Format("the result should contain {0} photos", noPhotos), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

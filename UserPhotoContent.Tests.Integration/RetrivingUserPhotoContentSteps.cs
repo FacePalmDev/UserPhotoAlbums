@@ -24,11 +24,7 @@ namespace UserPhotoContent.Tests.Integration
             ScenarioContext.Current.Pending();
         }
         
-        [When(@"the data is requested (.*) format")]
-        public void WhenTheDataIsRequestedFormat(string p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
+
         
         [Then(@"the resulting HTTP Status code should be (.*)")]
         public void ThenTheResultingHTTPStatusCodeShouldBe(int p0)
@@ -36,11 +32,7 @@ namespace UserPhotoContent.Tests.Integration
             ScenarioContext.Current.Pending();
         }
         
-        [Then(@"the HTTP Status code should be (.*)")]
-        public void ThenTheHTTPStatusCodeShouldBe(int p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
+  
         
         [Then(@"the result should contain (.*) photos")]
         public void ThenTheResultShouldContainPhotos(int p0)

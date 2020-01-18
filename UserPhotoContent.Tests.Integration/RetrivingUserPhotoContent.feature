@@ -10,7 +10,8 @@ Scenario: No photos or albums found for Nested Content
 	When the data is requested in "Nested" format
 	Then the resulting HTTP Status code should be 404
 
-Scenario: No photos or albums found for Flat Content
+Scenario: 
+
 
 	Given The user does not have any content
 	When the data is requested in "Flat" format
@@ -21,7 +22,7 @@ Scenario Outline: User content exists
 
 	Given I have <NoPhotos> and <NoAlbums>
 	When the data is requested <contentFormat> format
-	Then the HTTP Status code should be 200
+	Then the resulting HTTP Status code should be 200
 	And the result should contain <NoPhotos> photos
 	And the result should contain <NoAlbums> albums
 	And The content should be formatted as <contentFormat> 
