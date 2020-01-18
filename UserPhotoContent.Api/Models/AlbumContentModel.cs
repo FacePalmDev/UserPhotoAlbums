@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace UserPhotoContent.Api.Models
 {
-    public class UserPhotoContentModel
+    public class AlbumContentModel
     {
+        public int UserId { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
     }
 }

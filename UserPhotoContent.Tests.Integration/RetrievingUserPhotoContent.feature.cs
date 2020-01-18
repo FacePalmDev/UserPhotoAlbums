@@ -107,7 +107,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("The user does not have any content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
- testRunner.When("the data is requested in \"Nested\" format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the data is requested", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
  testRunner.Then("the resulting HTTP Status code should be 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
