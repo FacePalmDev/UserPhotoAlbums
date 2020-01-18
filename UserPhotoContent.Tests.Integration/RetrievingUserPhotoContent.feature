@@ -10,13 +10,6 @@ Scenario: No photos or albums found for Nested Content
 	When the data is requested in "Nested" format
 	Then the resulting HTTP Status code should be 404
 
-Scenario: 
-
-
-	Given The user does not have any content
-	When the data is requested in "Flat" format
-	Then the resulting HTTP Status code should be 404
-
 
 Scenario Outline: User content exists
 

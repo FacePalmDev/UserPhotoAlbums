@@ -28,7 +28,7 @@ namespace UserPhotoContent.Tests.Integration
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "RetrivingUserPhotoContent.feature"
+#line 1 "RetrievingUserPhotoContent.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -117,45 +117,6 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("No photos or albums found for Flat Content")]
-        public virtual void NoPhotosOrAlbumsFoundForFlatContent()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No photos or albums found for Flat Content", null, ((string[])(null)));
-#line 13
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 15
- testRunner.Given("The user does not have any content", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 16
- testRunner.When("the data is requested in \"Flat\" format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 17
- testRunner.Then("the resulting HTTP Status code should be 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User content exists")]
         [NUnit.Framework.TestCaseAttribute("0", "1", "Nested", null)]
         [NUnit.Framework.TestCaseAttribute("0", "1", "Flat", null)]
@@ -173,7 +134,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User content exists", null, exampleTags);
-#line 20
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -193,22 +154,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 22
+#line 16
  testRunner.Given(string.Format("I have {0} and {1}", noPhotos, noAlbums), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 23
+#line 17
  testRunner.When("the data is requested <contentFormat> format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 18
  testRunner.Then("the resulting HTTP Status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 25
+#line 19
  testRunner.And(string.Format("the result should contain {0} photos", noPhotos), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 20
  testRunner.And(string.Format("the result should contain {0} albums", noAlbums), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 21
  testRunner.And("The content should be formatted as <contentFormat>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
