@@ -110,7 +110,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the data is requested", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
- testRunner.Then("the resulting HTTP Status code should be 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the resulting HTTP Status code should be \"404\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -119,16 +119,13 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User content exists")]
         [NUnit.Framework.TestCaseAttribute("0", "1", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "0", null)]
         [NUnit.Framework.TestCaseAttribute("1", "1", null)]
         [NUnit.Framework.TestCaseAttribute("2", "1", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "2", null)]
-        [NUnit.Framework.TestCaseAttribute("2", "2", null)]
         public virtual void UserContentExists(string noPhotos, string noAlbums, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User content exists", null, exampleTags);
-#line 14
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -148,23 +145,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 16
+#line 15
  testRunner.Given(string.Format("The user has {0} and {1}", noPhotos, noAlbums), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 17
+#line 16
  testRunner.When("the data is requested", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
- testRunner.Then("the resulting HTTP Status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 17
+ testRunner.Then("the resulting HTTP Status code should be <ExpectedStatus>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 19
+#line 18
  testRunner.And(string.Format("the result should contain {0} photos", noPhotos), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 19
  testRunner.And(string.Format("the result should contain {0} albums", noAlbums), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 21
- testRunner.And("The content should be formatted as <contentFormat>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

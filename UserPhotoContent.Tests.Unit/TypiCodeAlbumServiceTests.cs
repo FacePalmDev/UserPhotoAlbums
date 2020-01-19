@@ -1,28 +1,33 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
-using UserPhotoContent.Api.Controllers;
-using UserPhotoContent.Common.Contracts.Models;
+using NUnit.Framework.Constraints;
 using UserPhotoContent.Common.Contracts.Services;
+using UserPhotoContent.Common.Mapping;
+using UserPhotoContent.Data.Models;
 using UserPhotoContent.Data.Services;
-using UserPhotoContent.Domain.Models;
 using UserPhotoContent.typicode.Models;
 using UserPhotoContent.typicode.Services;
 
 namespace UserPhotoContent.Tests.Unit
 {
-    public class TapiCodeAlbumServiceTests
+    public class TypiCodeAlbumServiceTests
     {
         private Mock<RemoteHttpContentService<TypiAlbumModel>> _mockRemoteService;
         private IEnumerable<TypiAlbumModel> _mockResult;
+        private IMapperService _mapperService;
 
         [SetUp]
         public void Setup()
         {
+            // Todo: Consider mocking if time permits.
+            // Could use Dependency Injection in test perhaps. Maybe overkill.
+            _mapperService = new MapperService();
+
             _mockResult = new List<TypiAlbumModel>()
             {
                 new TypiAlbumModel()
@@ -43,18 +48,29 @@ namespace UserPhotoContent.Tests.Unit
         [Test]
         public void CanInstantiate()
         {
-            var sut = new TypiCodeAlbumService(_mockRemoteService.Object);
+            var sut = new TypiCodeAlbumService(_mapperService, _mockRemoteService.Object);
             Assert.IsNotNull(sut);
         }
 
         [Test]
         public void ReturnsExpectedData()
         {
-            var sut = new TypiCodeAlbumService(_mockRemoteService.Object);
+            var sut = new TypiCodeAlbumService(_mapperService, _mockRemoteService.Object);
 
-            var result = sut.Get();
-            
-            Assert.AreEqual(_mockResult, result);
+            var actual = sut.Get().ToList();
+            var expected = 
+                _mapperService.Map<IEnumerable<AlbumDtoModel>>(_mockResult)
+                .ToList();
+
+            var albumDtoModels = actual.ToList();
+            Assert.AreEqual(expected.Count(), albumDtoModels.Count());
+
+            for (var index = 0; index < albumDtoModels.Count; index++)
+            {
+                var expectedItem = albumDtoModels[index];
+                var actualItem = actual[index];
+                Assert.AreEqual(expectedItem, actualItem);
+            }
         }
 
     }

@@ -1,6 +1,4 @@
-﻿
-using UserPhotoContent.Common.Contracts.Models;
-using UserPhotoContent.Data.Contracts.Models;
+﻿using UserPhotoContent.Data.Contracts.Models;
 
 namespace UserPhotoContent.typicode.Models
 { 

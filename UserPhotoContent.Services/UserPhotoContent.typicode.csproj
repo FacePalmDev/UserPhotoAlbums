@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UserPhotoContent.Data.Contracts\UserPhotoContent.Data.Contracts.csproj" />
+    <ProjectReference Include="..\UserPhotoContent.Data.Services\UserPhotoContent.Data.csproj" />
     <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Common.Contracts.csproj" />
   </ItemGroup>
 

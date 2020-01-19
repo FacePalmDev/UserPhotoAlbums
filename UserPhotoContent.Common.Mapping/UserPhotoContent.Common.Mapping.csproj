@@ -12,6 +12,7 @@
     <ProjectReference Include="..\UserPhotoContent.Data.Services\UserPhotoContent.Data.csproj" />
     <ProjectReference Include="..\UserPhotoContent.Domain.Models\UserPhotoContent.Domain.Models.csproj" />
     <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Common.Contracts.csproj" />
+    <ProjectReference Include="..\UserPhotoContent.Services\UserPhotoContent.typicode.csproj" />
   </ItemGroup>
 
 </Project>

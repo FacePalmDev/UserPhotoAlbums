@@ -8,35 +8,28 @@ Scenario: No photos or albums found for Nested Content
 
 	Given The user does not have any content
 	When the data is requested
-	Then the resulting HTTP Status code should be 404
-
+	Then the resulting HTTP Status code should be "404"
 
 Scenario Outline: User content exists
 
 	Given The user has <NoPhotos> and <NoAlbums>
 	When the data is requested
-	Then the resulting HTTP Status code should be 200
+	Then the resulting HTTP Status code should be <ExpectedStatus>
 	And the result should contain <NoPhotos> photos
 	And the result should contain <NoAlbums> albums
-	And The content should be formatted as <contentFormat> 
 
 Examples:
-| NoPhotos | NoAlbums |
-| 0        | 1        |
-| 1        | 0        | 
-| 1        | 1        |
-| 2        | 1        |
-| 1        | 2        |
-| 2        | 2        |
+| NoPhotos | NoAlbums | ExpectedStatus
+| 0        | 1        | 200
+| 1        | 1        | 200
+| 2        | 1        | 200
 
-# Thinking about testing the unhappy pathways. 
-# ============================================
-# Although the data has no photos without an album in theory it could happen.
-# Equally albums could possibly exist without photos
+# I should probably put more cases here...Testing the unhappy path is important too.
+# what happens if there are photos that aren't in albums? In the real world I'd go further to test this.
 
-# Thinking about testing the ideal pathways. 
-# ============================================
-# * a single photo in a single album
-# * multiple photos in a single album
-# * multiple photos in multiple albums (though not simultaneously i.e. many to many at present).
+# I initially decided to get a bit adventureous and try some of Bob Martin's suggestions about project structure. 
+# Then I spent ages trying to refactor it back to something sensible. 
+
+# I probably shouldn't have experimented with that but I believe that if you don't try you never learn.
+# It cost me a lot of time though.
 

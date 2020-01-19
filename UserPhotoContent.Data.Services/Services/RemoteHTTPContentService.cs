@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using UserPhotoContent.Common.Contracts.Models;
 using UserPhotoContent.Common.Contracts.Services;
 using UserPhotoContent.Data.Contracts.Models;
 

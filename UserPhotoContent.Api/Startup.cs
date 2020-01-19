@@ -4,6 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using UserPhotoContent.Common.Contracts.Services;
+using UserPhotoContent.Common.DependencyInjection;
+using UserPhotoContent.Data.Contracts.Services;
+using UserPhotoContent.Data.Models;
+using UserPhotoContent.Domain.Models;
+using UserPhotoContent.Domain.Services;
 
 namespace UserPhotoContent.Api
 {
@@ -20,6 +26,7 @@ namespace UserPhotoContent.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddUserPhotoContentServices();
 
             services.AddSwaggerGen(c =>
             {

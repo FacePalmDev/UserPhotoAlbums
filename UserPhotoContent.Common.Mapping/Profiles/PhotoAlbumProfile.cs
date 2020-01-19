@@ -1,6 +1,7 @@
 ﻿using UserPhotoContent.Data.Models;
 using AutoMapper;
 using UserPhotoContent.Domain.Models;
+using UserPhotoContent.typicode.Models;
 
 
 namespace UserPhotoContent.Common.Mapping.Profiles
@@ -9,8 +10,11 @@ namespace UserPhotoContent.Common.Mapping.Profiles
     {
         public PhotoAlbumProfile()
         {
-            CreateMap<PhotoDtoModel, PhotoModel>().ReverseMap();
-            CreateMap<AlbumDtoModel, PhotoAlbumModel>().ReverseMap();
+            CreateMap<TypiAlbumModel, AlbumDtoModel>();
+            CreateMap<TypiPhotoModel, PhotoDtoModel>();
+
+            CreateMap<PhotoDtoModel, PhotoModel>();
+            CreateMap<AlbumDtoModel, PhotoAlbumModel>();
         }
 
     }

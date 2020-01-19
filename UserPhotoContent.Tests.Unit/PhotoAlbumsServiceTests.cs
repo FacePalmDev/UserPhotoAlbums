@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Moq;
 using NUnit.Framework;
-using UserPhotoContent.Common.Contracts.Models;
-using UserPhotoContent.Common.Contracts.Services;
 using UserPhotoContent.Common.Mapping;
 using UserPhotoContent.Data.Contracts.Services;
 using UserPhotoContent.Data.Models;
-using UserPhotoContent.Domain;
 using UserPhotoContent.Domain.Services;
 
 namespace UserPhotoContent.Tests.Unit
@@ -22,7 +19,7 @@ namespace UserPhotoContent.Tests.Unit
         [SetUp]
         public void Setup()
         {
-            // todo: this should really be mocked. 
+            // todo: consider mocking if time permits. 
             _mapperService = new MapperService();
             SetupMockServices();
         }
