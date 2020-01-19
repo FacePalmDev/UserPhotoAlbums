@@ -1,21 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UserPhotoContent.Common.Contracts.Services;
+using UserPhotoContent.Data.Contracts.Services;
 using UserPhotoContent.typicode.Models;
 
 namespace UserPhotoContent.typicode.Services
 {
-    public class TypiCodeAlbumService: IUserService<TypiAlbumModel>
+    public class TypiCodeAlbumService
     {
-        readonly IRemoteContentService _remoteContentService;
-        public TypiCodeAlbumService(IRemoteContentService remoteContentService)
+        readonly IRemoteContentService<TypiAlbumModel> _remoteContentService;
+        
+        // todo hard coded string
+        private readonly Uri _tapiCodeAlbumsUrl = new Uri("http://jsonplaceholder.typicode.com/albums");
+        public TypiCodeAlbumService(IRemoteContentService<TypiAlbumModel> remoteContentService)
         {
             _remoteContentService = remoteContentService;
         }
 
-
         public IEnumerable<TypiAlbumModel> Get()
         {
-            throw new System.NotImplementedException();
+            return _remoteContentService.Get(_tapiCodeAlbumsUrl).Result;
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿
+using UserPhotoContent.Common.Contracts.Models;
+using UserPhotoContent.Data.Contracts.Models;
+
 namespace UserPhotoContent.typicode.Models
 { 
-    public class TypiPhotoModel
+    public class TypiPhotoModel: IThirdPartyModel
     {
 
         public int AlbumId { get; set; }

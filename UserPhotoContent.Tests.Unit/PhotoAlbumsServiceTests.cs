@@ -6,6 +6,7 @@ using NUnit.Framework;
 using UserPhotoContent.Common.Contracts.Models;
 using UserPhotoContent.Common.Contracts.Services;
 using UserPhotoContent.Common.Mapping;
+using UserPhotoContent.Data.Contracts.Services;
 using UserPhotoContent.Data.Models;
 using UserPhotoContent.Domain;
 using UserPhotoContent.Domain.Services;
@@ -14,8 +15,8 @@ namespace UserPhotoContent.Tests.Unit
 {
     public class PhotoAlbumsServiceTests
     {
-        private Mock<IUserService<AlbumDtoModel>> _mockAlbumService;
-        private Mock<IUserService<PhotoDtoModel>> _mockPhotoService;
+        private Mock<IThirdPartyService<AlbumDtoModel>> _mockAlbumService;
+        private Mock<IThirdPartyService<PhotoDtoModel>> _mockPhotoService;
         private MapperService _mapperService;
 
         [SetUp]
@@ -67,8 +68,8 @@ namespace UserPhotoContent.Tests.Unit
 
         private void SetupMockServices()
         {
-            _mockAlbumService = new Mock<IUserService<AlbumDtoModel>>();
-            _mockPhotoService = new Mock<IUserService<PhotoDtoModel>>();
+            _mockAlbumService = new Mock<IThirdPartyService<AlbumDtoModel>>();
+            _mockPhotoService = new Mock<IThirdPartyService<PhotoDtoModel>>();
 
             _mockAlbumService
                 .Setup(a => a.Get())

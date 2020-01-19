@@ -11,6 +11,10 @@
     <AssemblyName>UserPhotoContent.Data</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserPhotoContent.Data.Contracts\UserPhotoContent.Data.Contracts.csproj" />
     <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Common.Contracts.csproj" />
   </ItemGroup>
 </Project>

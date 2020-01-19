@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UserPhotoContent.Common.Contracts.Models;
+using UserPhotoContent.Data.Contracts.Models;
 
 namespace UserPhotoContent.Common.Contracts.Services
 {
-    public interface IRemoteContentService
+    public interface IRemoteContentService<TThirdPartyModel> where TThirdPartyModel : IThirdPartyModel 
     {
-        IEnumerable<IDomainModel> Get(Uri endpoint);
+        Task<IEnumerable<TThirdPartyModel>> Get(Uri endpoint);
     }
 }
