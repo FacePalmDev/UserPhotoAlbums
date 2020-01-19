@@ -1,5 +1,6 @@
 ﻿using System;
-using UserPhotoContent.Interfaces.Models;
+using System.Net.NetworkInformation;
+using UserPhotoContent.Common.Contracts.Models;
 
 namespace UserPhotoContent.Domain.Models
 {
@@ -10,4 +11,6 @@ namespace UserPhotoContent.Domain.Models
         public Uri Url { get; set; }
         public Uri ThumbnailUrl { get; set; }
     }
+
+  
 }

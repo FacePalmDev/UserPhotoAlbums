@@ -1,44 +1,72 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UserPhotoContent.Common.Contracts.Models;
+using UserPhotoContent.Common.Contracts.Services;
 using UserPhotoContent.Data.Models;
 using UserPhotoContent.Domain.Models;
-using UserPhotoContent.Interfaces.Factories;
-using UserPhotoContent.Interfaces.Models;
-using UserPhotoContent.Interfaces.Services;
 
 
 namespace UserPhotoContent.Domain
 {
     public class PhotoAlbumsService : IUserContentService
     {
-        private readonly IService<AlbumDtoModel> _albumSourceService;
-        private readonly IService<PhotoDtoModel> _photoSourceService;
-        private readonly IFactory<IDomainModel> _userContentFactory;
+        private readonly IUserService<AlbumDtoModel> _albumSourceService;
+        private readonly IUserService<PhotoDtoModel> _photoSourceService;
+        private readonly IMapperService _mapperService;
 
         public PhotoAlbumsService(
-            IService<AlbumDtoModel> albumSourceService, 
-            IService<PhotoDtoModel> photoSourceService,
-            IFactory<IDomainModel> userContentFactory)
+            IUserService<AlbumDtoModel> albumSourceService, 
+            IUserService<PhotoDtoModel> photoSourceService,
+            IMapperService mapperService)
         {
             _albumSourceService = albumSourceService;
             _photoSourceService = photoSourceService;
-            _userContentFactory = userContentFactory;
+            _mapperService = mapperService;
         }
         public IEnumerable<IDomainModel> Get(int userId)
         {
+            var albumDtoModels = 
+                _albumSourceService.Get()
+                    .Where(a => a.UserId == userId);
 
-            throw new NotImplementedException();
-            // var userAlbums = _albumSourceService.Get().Where(a => a.UserId == userId); 
-            //
-            // foreach (var album in userAlbums)
-            // { 
-            //     var albumPhotos = 
-            //         _photoSourceService.Get()
-            //         .Where(p => p.AlbumId == album.Id);
-            //
-            //     yield return _userContentFactory.Create();
-            // } 
+            var albumDomainModels = _mapperService.Map<IEnumerable<AlbumModel>>(albumDtoModels);
+
+            foreach (var album in albumDomainModels)
+            {
+                var albumPhotoDtoModels =
+                    _photoSourceService.Get()
+                        .Where(p => p.AlbumId == album.Id);
+
+                var albumPhotoDomainModels = _mapperService.Map<IEnumerable<PhotoModel>>(albumPhotoDtoModels);
+
+
+                // album.Photos = albumPhotoDomainModels;
+
+
+                yield return album;
+                //
+                // var albumPhotoDomainModels = new List<IPhotoDomainModel>();
+                //
+
+
+
+
+                // foreach (var photo in albumPhotos)
+                // {
+                //     albumPhotoDomainModels.Add(new PhotoModel()
+                //     {
+                //
+                //     });
+                // }
+                //
+                //
+                // yield return new AlbumModel()
+                // {
+                //     Photos = 
+                // }
+            } 
 
         }
     }

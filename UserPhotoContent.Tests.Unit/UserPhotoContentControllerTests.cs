@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using UserPhotoContent.Api.Controllers;
-using UserPhotoContent.Interfaces.Services;
+using UserPhotoContent.Common.Contracts.Services;
 
 namespace UserPhotoContent.Tests.Unit
 {

@@ -1,4 +1,4 @@
-﻿namespace UserPhotoContent.typicode.Albums
+﻿namespace UserPhotoContent.typicode.Models
 {
     public class TypiAlbumModel
     {

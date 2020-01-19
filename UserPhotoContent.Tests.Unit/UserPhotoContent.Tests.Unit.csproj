@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UserPhotoContent.Api\UserPhotoContent.Api.csproj" />
+    <ProjectReference Include="..\UserPhotoContent.Common.Mapping\UserPhotoContent.Common.Mapping.csproj" />
   </ItemGroup>
 
 </Project>

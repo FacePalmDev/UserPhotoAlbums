@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UserPhotoContent.Domain\UserPhotoContent.Domain.csproj" />
-    <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Interfaces.csproj" />
+    <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Common.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

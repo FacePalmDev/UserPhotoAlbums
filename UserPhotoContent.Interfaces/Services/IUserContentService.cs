@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using UserPhotoContent.Interfaces.Models;
+using UserPhotoContent.Common.Contracts.Models;
 
-namespace UserPhotoContent.Interfaces.Services
+namespace UserPhotoContent.Common.Contracts.Services
 {
     public interface IUserContentService
     {

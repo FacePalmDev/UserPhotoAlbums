@@ -1,76 +1,106 @@
-// using System;
-// using System.Collections.Generic;
-// using Moq;
-// using NUnit.Framework;
-// using UserPhotoContent.Interfaces.Factories;
-// using UserPhotoContent.Interfaces.Models;
-//
-// namespace UserPhotoContent.Tests.Unit
-// {
-//     public class UserPhotoContentServiceTests
-//     {
-//         [SetUp]
-//         public void Setup()
-//         {
-//
-//         }
-//
-//         [Test]
-//         public void CanInstantiate()
-//         {
-//             var mockAlbumService = new Mock<TypiCodeAlbumService>();
-//             var mockPhotoService = new Mock<TypiCodePhotoService>();
-//             var mockContentFactory = new Mock<IFactory<IDomainModel>>();
-//
-//             var sut = new UserPhotoAlbumsService(
-//                 mockAlbumService.Object,
-//                 mockPhotoService.Object,
-//                 mockContentFactory.Object);
-//
-//             Assert.IsNotNull(sut);
-//         }
-//
-//         public void ShouldReturnTheCorrectNumberOfResults()
-//         {
-//
-//             var fakeResult = new List<AlbumModel>()
-//             {
-//                 new AlbumModel()
-//                 {
-//                     Id = 1,
-//                     UserId = 1,
-//                     Title = "Image 1",
-//                     Photos = new List<IPhotoDomainModel>()
-//                     {
-//                         new PhotoModel()
-//                         {
-//                             Id = 1,
-//                             ThumbnailUrl = new Uri("http://www.example.com/thumb.png"),
-//                             Title = "example",
-//                             Url = new Uri("http://www.example.com/image.png")
-//                         }
-//                     }
-//                 }
-//             } as IEnumerable<IAlbumDomainModel>;
-//             
-//
-//             var mockAlbumService = new Mock<TypiCodeAlbumService>();
-//             var mockPhotoService = new Mock<TypiCodePhotoService>();
-//             var mockContentFactory
-//                 = new Mock<IFactory<IDomainModel>>()
-//                     .Setup(x => x.())
-//                     .Returns(fakeResult);
-//
-//             var sut = new UserPhotoAlbumsService(
-//                 mockAlbumService.Object,
-//                 mockPhotoService.Object,
-//                 mockContentFactory.Object);
-//
-//             var actual = sut.Get(123);
-//
-//             IEnumerable<IDomainModel> expected = null;
-//
-//             Assert.AreEqual(expected, actual);
-//         }
-//     }
-// }
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Moq;
+using NUnit.Framework;
+using UserPhotoContent.Common.Contracts.Services;
+using UserPhotoContent.Common.Mapping;
+using UserPhotoContent.Data.Models;
+using UserPhotoContent.Domain;
+
+namespace UserPhotoContent.Tests.Unit
+{
+    public class UserPhotoContentServiceTests
+    {
+        private Mock<IUserService<AlbumDtoModel>> _mockAlbumService;
+        private Mock<IUserService<PhotoDtoModel>> _mockPhotoService;
+        private MapperService _mapperService;
+
+        [SetUp]
+        public void Setup()
+        {
+            // todo: this should really be mocked. 
+            _mapperService = new MapperService();
+            SetupMockServices();
+        }
+
+        [Test]
+        public void CanInstantiate()
+        {
+            var sut = new PhotoAlbumsService(
+                _mockAlbumService.Object,
+                _mockPhotoService.Object,
+                _mapperService);
+
+            Assert.IsNotNull(sut);
+        }
+
+        [Test]
+        public void ShouldReturnTheExpectedNumberOfAlbums()
+        {
+            var sut = new PhotoAlbumsService(
+                _mockAlbumService.Object,
+                _mockPhotoService.Object,
+                _mapperService);
+
+            var actual = sut.Get(1);
+
+            Assert.AreEqual(1, actual.Count());
+        }
+
+
+        private void SetupMockServices()
+        {
+            _mockAlbumService = new Mock<IUserService<AlbumDtoModel>>();
+            _mockPhotoService = new Mock<IUserService<PhotoDtoModel>>();
+
+            _mockAlbumService
+                .Setup(a => a.Get())
+                .Returns(new List<AlbumDtoModel>()
+                {
+                    new AlbumDtoModel()
+                    {
+                        Id = 1,
+                        Title = "Album 1",
+                        UserId = 1,
+                    },
+                    new AlbumDtoModel()
+                    {
+                        Id = 2,
+                        Title = "Album 2",
+                        UserId = 2,
+                    }
+                });
+
+            _mockPhotoService
+                .Setup(x => x.Get())
+                .Returns(new List<PhotoDtoModel>()
+                {
+                    new PhotoDtoModel()
+                    {
+                        Id = 1,
+                        Title = "Photo 1, Album 1",
+                        Url = new Uri("https://via.placeholder.com/600/771796"),
+                        ThumbnailUrl = new Uri("https://via.placeholder.com/150/771796"),
+                        AlbumId = 1
+                    },
+                    new PhotoDtoModel()
+                    {
+                        Id = 2,
+                        Title = "Photo 2, Album 1",
+                        Url = new Uri("https://via.placeholder.com/600/771796"),
+                        ThumbnailUrl = new Uri("https://via.placeholder.com/150/771796"),
+                        AlbumId = 1
+                    },
+                    new PhotoDtoModel()
+                    {
+                        Id = 3,
+                        Title = "Photo 3, Album 2",
+                        Url = new Uri("https://via.placeholder.com/600/771796"),
+                        ThumbnailUrl = new Uri("https://via.placeholder.com/150/771796"),
+                        AlbumId = 2
+                    }
+                });
+        }
+    }
+}

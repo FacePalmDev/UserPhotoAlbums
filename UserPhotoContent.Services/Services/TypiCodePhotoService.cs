@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using UserPhotoContent.Interfaces.Services;
-using UserPhotoContent.typicode.Photos;
+using UserPhotoContent.Common.Contracts.Services;
+using UserPhotoContent.typicode.Models;
 
-
-namespace UserPhotoContent.Api.Services.PhotoAlbum.typicode
+namespace UserPhotoContent.typicode.Services
 {
-    public class TypiCodePhotoService: IService<TypiPhotoModel>
+    public class TypiCodePhotoService: IUserService<TypiPhotoModel>
     {
         private readonly IRemoteContentService _remoteApiService;
 

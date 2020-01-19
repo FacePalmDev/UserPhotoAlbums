@@ -11,14 +11,6 @@
     <AssemblyName>UserPhotoContent.Data</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-
-
+    <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Common.Contracts.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Interfaces.csproj">
-      <Project>{1C969B8E-8017-4E43-B528-73DEF7C545B5}</Project>
-      <Name>UserPhotoContent.Interfaces</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
 </Project>

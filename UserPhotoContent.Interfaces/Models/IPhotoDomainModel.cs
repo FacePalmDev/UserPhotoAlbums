@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UserPhotoContent.Interfaces.Models
+namespace UserPhotoContent.Common.Contracts.Models
 {
     public interface IPhotoDomainModel: IDomainModel
     {

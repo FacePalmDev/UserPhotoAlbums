@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using UserPhotoContent.Interfaces.Services;
+using UserPhotoContent.Common.Contracts.Services;
 
 namespace UserPhotoContent.Api.Controllers
 {

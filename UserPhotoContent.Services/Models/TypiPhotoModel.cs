@@ -1,5 +1,5 @@
 ﻿
-namespace UserPhotoContent.typicode.Photos
+namespace UserPhotoContent.typicode.Models
 { 
     public class TypiPhotoModel
     {

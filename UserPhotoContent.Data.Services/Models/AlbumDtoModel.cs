@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using UserPhotoContent.Interfaces.Models;
+using UserPhotoContent.Common.Contracts.Models;
 
 namespace UserPhotoContent.Data.Models
 {
@@ -8,6 +8,6 @@ namespace UserPhotoContent.Data.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public string Title { get; set; }
-        public IEnumerable<IPhotoDomainModel> Photos { get; set; }
+
     }
 }

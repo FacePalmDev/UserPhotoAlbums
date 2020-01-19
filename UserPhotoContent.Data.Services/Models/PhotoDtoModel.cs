@@ -1,5 +1,5 @@
 ﻿using System;
-using UserPhotoContent.Interfaces.Models;
+using UserPhotoContent.Common.Contracts.Models;
 
 namespace UserPhotoContent.Data.Models
 {
@@ -9,6 +9,7 @@ namespace UserPhotoContent.Data.Models
         public string Title { get; set; }
         public Uri Url { get; set; }
         public Uri ThumbnailUrl { get; set; }
+        public int AlbumId { get; set; }
     }
 }
     

@@ -6,8 +6,8 @@ using Moq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using UserPhotoContent.Api.Controllers;
-using UserPhotoContent.Interfaces.Models;
-using UserPhotoContent.Interfaces.Services;
+using UserPhotoContent.Common.Contracts.Models;
+using UserPhotoContent.Common.Contracts.Services;
 
 namespace UserPhotoContent.Tests.Integration
 {
