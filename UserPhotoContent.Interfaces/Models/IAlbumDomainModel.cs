@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace UserPhotoContent.Common.Contracts.Models
+﻿namespace UserPhotoContent.Common.Contracts.Models
 {
     public interface IAlbumDomainModel : IDomainModel
     {

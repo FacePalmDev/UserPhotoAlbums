@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UserPhotoContent.Common.Contracts.Models;
+﻿using UserPhotoContent.Common.Contracts.Models;
 
 namespace UserPhotoContent.Data.Models
 {

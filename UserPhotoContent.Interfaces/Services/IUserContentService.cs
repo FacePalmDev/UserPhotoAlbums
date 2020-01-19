@@ -3,8 +3,8 @@ using UserPhotoContent.Common.Contracts.Models;
 
 namespace UserPhotoContent.Common.Contracts.Services
 {
-    public interface IUserContentService
+    public interface IUserContentService<T> where T : IDomainModel
     {
-        IEnumerable<IDomainModel> Get(int userId);
+        IEnumerable<T> Get(int userId);
     }
 }

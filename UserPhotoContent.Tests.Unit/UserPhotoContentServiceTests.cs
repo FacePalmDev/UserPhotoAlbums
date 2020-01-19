@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Moq;
 using NUnit.Framework;
+using UserPhotoContent.Common.Contracts.Models;
 using UserPhotoContent.Common.Contracts.Services;
 using UserPhotoContent.Common.Mapping;
 using UserPhotoContent.Data.Models;
@@ -46,6 +47,20 @@ namespace UserPhotoContent.Tests.Unit
             var actual = sut.Get(1);
 
             Assert.AreEqual(1, actual.Count());
+        }
+
+        [Test]
+        public void ShouldReturnTheExpectedNumberOfPhotos()
+        {
+            var sut = new PhotoAlbumsService(
+                _mockAlbumService.Object,
+                _mockPhotoService.Object,
+                _mapperService);
+
+            var albums = sut.Get(1).First();
+            var actual = albums.Photos.Count();
+
+            Assert.AreEqual(2, actual);
         }
 
 

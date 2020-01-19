@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.NetworkInformation;
 using UserPhotoContent.Common.Contracts.Models;
 
 namespace UserPhotoContent.Domain.Models

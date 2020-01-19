@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -8,6 +7,7 @@ using TechTalk.SpecFlow;
 using UserPhotoContent.Api.Controllers;
 using UserPhotoContent.Common.Contracts.Models;
 using UserPhotoContent.Common.Contracts.Services;
+using UserPhotoContent.Domain.Models;
 
 namespace UserPhotoContent.Tests.Integration
 {
@@ -21,9 +21,9 @@ namespace UserPhotoContent.Tests.Integration
         public void GivenTheUserDoesNotHaveAnyContent()
         {
             var mockLogger = new Mock<ILogger<UserPhotoContentController>>();
-            var mockService = new Mock<IUserContentService>();
+            var mockService = new Mock<IUserContentService<PhotoAlbumModel>>();
 
-            mockService.Setup(s => s.Get(It.IsAny<int>())).Returns(new List<IDomainModel>());
+            mockService.Setup(s => s.Get(It.IsAny<int>())).Returns(new List<PhotoAlbumModel>());
 
             _userPhotoContentController = new UserPhotoContentController(mockLogger.Object, mockService.Object);
         }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UserPhotoContent.Common.Contracts.Models;
-using UserPhotoContent.Data.Models;
+﻿using UserPhotoContent.Data.Models;
 using AutoMapper;
 using UserPhotoContent.Domain.Models;
 
@@ -14,7 +10,7 @@ namespace UserPhotoContent.Common.Mapping.Profiles
         public PhotoAlbumProfile()
         {
             CreateMap<PhotoDtoModel, PhotoModel>().ReverseMap();
-            CreateMap<AlbumDtoModel, AlbumModel>().ReverseMap();
+            CreateMap<AlbumDtoModel, PhotoAlbumModel>().ReverseMap();
         }
 
     }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using UserPhotoContent.Common.Contracts.Services;
+using UserPhotoContent.Domain.Models;
 
 namespace UserPhotoContent.Api.Controllers
 {
@@ -10,12 +11,12 @@ namespace UserPhotoContent.Api.Controllers
     public class UserPhotoContentController : ControllerBase
     {
         private readonly ILogger<UserPhotoContentController> _logger;
-        private readonly IUserContentService _photoAlbumsContentService;
+        private readonly IUserContentService<PhotoAlbumModel> _photoAlbumsContentService;
 
 
         public UserPhotoContentController(
             ILogger<UserPhotoContentController> logger,
-                IUserContentService photoAlbumsContentService
+            IUserContentService<PhotoAlbumModel> photoAlbumsContentService
             )
         {
             _logger = logger;
