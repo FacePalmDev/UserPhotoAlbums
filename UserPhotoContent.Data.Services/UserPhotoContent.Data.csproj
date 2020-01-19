@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <ProjectGuid>{7E2F1EAB-E340-49F0-8646-AD986CB2A97D}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>UserPhotoContent.Data</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+
+
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Interfaces.csproj">
+      <Project>{1C969B8E-8017-4E43-B528-73DEF7C545B5}</Project>
+      <Name>UserPhotoContent.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+</Project>

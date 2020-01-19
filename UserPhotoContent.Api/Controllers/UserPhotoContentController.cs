@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using UserPhotoContent.Api.Models;
-using UserPhotoContent.Api.Services;
+using UserPhotoContent.Interfaces.Services;
 
 namespace UserPhotoContent.Api.Controllers
 {
@@ -14,22 +10,24 @@ namespace UserPhotoContent.Api.Controllers
     public class UserPhotoContentController : ControllerBase
     {
         private readonly ILogger<UserPhotoContentController> _logger;
-        private readonly IContentService _userPhotoContentService;
+        private readonly IUserContentService _photoAlbumsContentService;
+
 
         public UserPhotoContentController(
             ILogger<UserPhotoContentController> logger,
-            IContentService userPhotoContentService)
+                IUserContentService photoAlbumsContentService
+            )
         {
             _logger = logger;
-            _userPhotoContentService = userPhotoContentService;
+            _photoAlbumsContentService = photoAlbumsContentService;
         }
 
         [HttpGet]
         public IActionResult Get(int userId)
         {
-            var result =  _userPhotoContentService.GetUserContent(userId);
+            var result = _photoAlbumsContentService.Get(userId);
 
-            if (!result.Any())
+            if (result.Any() == false)
             {
                 return NotFound();
             }

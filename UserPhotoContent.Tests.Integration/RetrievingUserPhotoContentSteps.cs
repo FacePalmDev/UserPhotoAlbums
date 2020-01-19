@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using UserPhotoContent.Api.Controllers;
-using UserPhotoContent.Api.Models;
-using UserPhotoContent.Api.Services;
+using UserPhotoContent.Interfaces.Models;
+using UserPhotoContent.Interfaces.Services;
 
 namespace UserPhotoContent.Tests.Integration
 {
@@ -22,17 +21,17 @@ namespace UserPhotoContent.Tests.Integration
         public void GivenTheUserDoesNotHaveAnyContent()
         {
             var mockLogger = new Mock<ILogger<UserPhotoContentController>>();
-            var mockService = new Mock<IContentService>();
+            var mockService = new Mock<IUserContentService>();
 
-            mockService.Setup(s => s.GetUserContent(It.IsAny<int>())).Returns(new List<IContentModel>());
+            mockService.Setup(s => s.Get(It.IsAny<int>())).Returns(new List<IDomainModel>());
 
             _userPhotoContentController = new UserPhotoContentController(mockLogger.Object, mockService.Object);
         }
-        
+
         [Given(@"The user has (.*) and (.*)")]
         public void GivenTheUserHasAnd(int noPhotos, int noAlbums)
         {
-           Assert.Fail();
+            Assert.Fail();
         }
 
         [When(@"the data is requested")]
@@ -50,9 +49,9 @@ namespace UserPhotoContent.Tests.Integration
         [When(@"the data is requested in ""(.*)"" format")]
         public void WhenTheDataIsRequestedInFormat(string format)
         {
-           Assert.Fail();
+            Assert.Fail();
         }
-        
+
         [Then(@"the resulting HTTP Status code should be (.*)")]
         public void ThenTheResultingHttpStatusCodeShouldBe(int p0)
         {
@@ -61,23 +60,23 @@ namespace UserPhotoContent.Tests.Integration
 
             Assert.AreEqual(expected, actual);
         }
-        
+
         [Then(@"the result should contain (.*) photos")]
         public void ThenTheResultShouldContainPhotos(int expectedPhotoCount)
         {
             Assert.Fail();
         }
-        
+
         [Then(@"the result should contain (.*) albums")]
         public void ThenTheResultShouldContainAlbums(int expectedAlbumCount)
         {
-           Assert.Fail();
+            Assert.Fail();
         }
-        
+
         [Then(@"The content should be formatted as (.*)")]
         public void ThenTheContentShouldBeFormattedAs(string expectedFormat)
         {
-           Assert.Fail();
+            Assert.Fail();
         }
     }
 }

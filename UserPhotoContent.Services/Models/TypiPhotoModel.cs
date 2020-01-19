@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace UserPhotoContent.Api.Models
-{
-    public class PhotoContentModel : IContentModel
+﻿
+namespace UserPhotoContent.typicode.Photos
+{ 
+    public class TypiPhotoModel
     {
 
         public int AlbumId { get; set; }

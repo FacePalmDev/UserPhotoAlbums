@@ -3,9 +3,9 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using UserPhotoContent.Api.Controllers;
-using UserPhotoContent.Api.Services;
+using UserPhotoContent.Interfaces.Services;
 
-namespace UserPhotoContent.Tests.Unit.UserContent
+namespace UserPhotoContent.Tests.Unit
 {
     public class UserPhotoContentControllerTests
     {
@@ -21,7 +21,7 @@ namespace UserPhotoContent.Tests.Unit.UserContent
         public void CanInstantiate()
         {
             var sut = new UserPhotoContentController(_mockLogger.Object, 
-                new Mock<IContentService>().Object);
+                new Mock<IUserContentService>().Object);
 
             Assert.IsNotNull(sut);
         }
@@ -29,7 +29,7 @@ namespace UserPhotoContent.Tests.Unit.UserContent
         [Test]
         public void GracefullyHandlesNoUserContentWith404Response()
         {
-            var mockContentService = new Mock<IContentService>();
+            var mockContentService = new Mock<IUserContentService>();
 
             var sut = new UserPhotoContentController(_mockLogger.Object,
                 mockContentService.Object);

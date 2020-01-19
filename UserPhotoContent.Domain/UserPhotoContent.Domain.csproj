@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UserPhotoContent.Data.Services\UserPhotoContent.Data.csproj" />
+    <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Interfaces.csproj" />
+    <ProjectReference Include="..\UserPhotoContent.Services\UserPhotoContent.typicode.csproj" />
+  </ItemGroup>
+
+</Project>
