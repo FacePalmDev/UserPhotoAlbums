@@ -8,20 +8,20 @@ using UserPhotoContent.Domain.Models;
 
 namespace UserPhotoContent.Tests.Unit
 {
-    public class UserPhotoContentControllerTests
+    public class PhotoAlbumsControllerTests
     {
-        private Mock<ILogger<UserPhotoContentController>> _mockLogger;
+        private Mock<ILogger<PhotoAlbumsController>> _mockLogger;
 
         [SetUp]
         public void Setup()
         { 
-            _mockLogger = new Mock<ILogger<UserPhotoContentController>>();
+            _mockLogger = new Mock<ILogger<PhotoAlbumsController>>();
         }
 
         [Test]
         public void CanInstantiate()
         {
-            var sut = new UserPhotoContentController(_mockLogger.Object, 
+            var sut = new PhotoAlbumsController(_mockLogger.Object, 
                 new Mock<IUserContentService<PhotoAlbumModel>>().Object);
 
             Assert.IsNotNull(sut);
@@ -32,7 +32,7 @@ namespace UserPhotoContent.Tests.Unit
         {
             var mockContentService = new Mock<IUserContentService<PhotoAlbumModel>>();
 
-            var sut = new UserPhotoContentController(_mockLogger.Object,
+            var sut = new PhotoAlbumsController(_mockLogger.Object,
                 mockContentService.Object);
 
             var actual = sut.Get(1).GetType();

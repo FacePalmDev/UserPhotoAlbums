@@ -8,10 +8,11 @@ using UserPhotoContent.Common.Contracts.Services;
 using UserPhotoContent.Common.Mapping;
 using UserPhotoContent.Data.Models;
 using UserPhotoContent.Domain;
+using UserPhotoContent.Domain.Services;
 
 namespace UserPhotoContent.Tests.Unit
 {
-    public class UserPhotoContentServiceTests
+    public class PhotoAlbumsServiceTests
     {
         private Mock<IUserService<AlbumDtoModel>> _mockAlbumService;
         private Mock<IUserService<PhotoDtoModel>> _mockPhotoService;

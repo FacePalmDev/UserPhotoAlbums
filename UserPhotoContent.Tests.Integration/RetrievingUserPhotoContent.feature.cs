@@ -118,19 +118,13 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User content exists")]
-        [NUnit.Framework.TestCaseAttribute("0", "1", "Nested", null)]
-        [NUnit.Framework.TestCaseAttribute("0", "1", "Flat", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "0", "Nested", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "0", "Flat", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "1", "Nested", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "1", "Flat", null)]
-        [NUnit.Framework.TestCaseAttribute("2", "1", "Nested", null)]
-        [NUnit.Framework.TestCaseAttribute("2", "1", "Flat", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "2", "Nested", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "2", "Flat", null)]
-        [NUnit.Framework.TestCaseAttribute("2", "2", "Nested", null)]
-        [NUnit.Framework.TestCaseAttribute("2", "2", "Flat", null)]
-        public virtual void UserContentExists(string noPhotos, string noAlbums, string contentFormat, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("0", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "0", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "2", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "2", null)]
+        public virtual void UserContentExists(string noPhotos, string noAlbums, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User content exists", null, exampleTags);
@@ -158,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given(string.Format("The user has {0} and {1}", noPhotos, noAlbums), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 17
- testRunner.When("the data is requested <contentFormat> format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the data is requested", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
  testRunner.Then("the resulting HTTP Status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

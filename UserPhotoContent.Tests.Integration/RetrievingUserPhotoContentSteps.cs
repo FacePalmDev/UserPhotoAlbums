@@ -14,18 +14,18 @@ namespace UserPhotoContent.Tests.Integration
     [Binding]
     public class RetrievingUserPhotoContentSteps
     {
-        private UserPhotoContentController _userPhotoContentController;
+        private PhotoAlbumsController _userPhotoContentController;
         private IActionResult _response;
 
         [Given(@"The user does not have any content")]
         public void GivenTheUserDoesNotHaveAnyContent()
         {
-            var mockLogger = new Mock<ILogger<UserPhotoContentController>>();
+            var mockLogger = new Mock<ILogger<PhotoAlbumsController>>();
             var mockService = new Mock<IUserContentService<PhotoAlbumModel>>();
 
             mockService.Setup(s => s.Get(It.IsAny<int>())).Returns(new List<PhotoAlbumModel>());
 
-            _userPhotoContentController = new UserPhotoContentController(mockLogger.Object, mockService.Object);
+            _userPhotoContentController = new PhotoAlbumsController(mockLogger.Object, mockService.Object);
         }
 
         [Given(@"The user has (.*) and (.*)")]
@@ -40,17 +40,6 @@ namespace UserPhotoContent.Tests.Integration
             _response = _userPhotoContentController.Get(1);
         }
 
-        [When(@"the data is requested (.*) format")]
-        public void WhenTheDataIsRequestedFormat(string p0)
-        {
-            Assert.Fail();
-        }
-
-        [When(@"the data is requested in ""(.*)"" format")]
-        public void WhenTheDataIsRequestedInFormat(string format)
-        {
-            Assert.Fail();
-        }
 
         [Then(@"the resulting HTTP Status code should be (.*)")]
         public void ThenTheResultingHttpStatusCodeShouldBe(int p0)

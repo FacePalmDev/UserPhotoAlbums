@@ -1,22 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UserPhotoContent.Common.Contracts.Models;
 using UserPhotoContent.Common.Contracts.Services;
 using UserPhotoContent.Data.Models;
 using UserPhotoContent.Domain.Models;
 
-
-namespace UserPhotoContent.Domain
+namespace UserPhotoContent.Domain.Services
 {
     public class PhotoAlbumsService : IUserContentService<PhotoAlbumModel>
     {
-        private readonly IUserService<AlbumDtoModel> _albumSourceService;
-        private readonly IUserService<PhotoDtoModel> _photoSourceService;
+        private readonly IThirdPartyService<AlbumDtoModel> _albumSourceService;
+        private readonly IThirdPartyService<PhotoDtoModel> _photoSourceService;
         private readonly IMapperService _mapperService;
 
         public PhotoAlbumsService(
-            IUserService<AlbumDtoModel> albumSourceService, 
-            IUserService<PhotoDtoModel> photoSourceService,
+            IThirdPartyService<AlbumDtoModel> albumSourceService, 
+            IThirdPartyService<PhotoDtoModel> photoSourceService,
             IMapperService mapperService)
         {
             _albumSourceService = albumSourceService;

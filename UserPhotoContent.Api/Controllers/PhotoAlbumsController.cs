@@ -8,14 +8,14 @@ namespace UserPhotoContent.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserPhotoContentController : ControllerBase
+    public class PhotoAlbumsController : ControllerBase
     {
-        private readonly ILogger<UserPhotoContentController> _logger;
+        private readonly ILogger<PhotoAlbumsController> _logger;
         private readonly IUserContentService<PhotoAlbumModel> _photoAlbumsContentService;
 
 
-        public UserPhotoContentController(
-            ILogger<UserPhotoContentController> logger,
+        public PhotoAlbumsController(
+            ILogger<PhotoAlbumsController> logger,
             IUserContentService<PhotoAlbumModel> photoAlbumsContentService
             )
         {

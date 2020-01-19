@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UserPhotoContent.Domain\UserPhotoContent.Domain.csproj" />
+    <ProjectReference Include="..\UserPhotoContent.Domain\UserPhotoContent.Domain.Services.csproj" />
     <ProjectReference Include="..\UserPhotoContent.Interfaces\UserPhotoContent.Common.Contracts.csproj" />
   </ItemGroup>
 

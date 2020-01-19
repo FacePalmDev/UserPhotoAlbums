@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{3D35017B-B73
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserPhotoContent.Common.Contracts", "UserPhotoContent.Interfaces\UserPhotoContent.Common.Contracts.csproj", "{1C969B8E-8017-4E43-B528-73DEF7C545B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserPhotoContent.Domain", "UserPhotoContent.Domain\UserPhotoContent.Domain.csproj", "{304AC02C-921B-4B86-A8E7-A81053183364}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserPhotoContent.Domain.Services", "UserPhotoContent.Domain\UserPhotoContent.Domain.Services.csproj", "{304AC02C-921B-4B86-A8E7-A81053183364}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserPhotoContent.Data", "UserPhotoContent.Data.Services\UserPhotoContent.Data.csproj", "{7E2F1EAB-E340-49F0-8646-AD986CB2A97D}"
 EndProject
